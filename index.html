@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="style.css">
     </head>
     <body>
+       
         <header class="top-ribbon">
             <div class="logo">
-                <h2>Pratiksha</h2>
+                <img src="newlogo 1.png" alt="logo">
             </div>
             <nav class="nav-links">
                 <a href="#about">About</a>
@@ -18,23 +19,27 @@
                 <a href="#contact">Contact</a>
             </nav>
         </header>
-        <section class="home-section">
+       
+        <section id="about" class="home-section">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
             <div class="home-text">
-            <h1>Hello, I'm 
-                <br>Pratiksha Srivastava</h1>
-            <h2>A 2nd year IT undergrad exploring code, curiosity, and everything in between </h2>
-            <button>View My Portfolio</button>
-            <button>Contact Me</button>
+                <h1><br>Pratiksha Srivastava</h1>
+                <h2>A 2nd year IT undergrad exploring code, curiosity, and everything in between </h2>
+            <div class="home-buttons">
+                <a href="#projects" class="btn-primary">View My Projects</a>
+                <a href="#contact" class="btn-secondary">Contact Me</a>
+            </div>
             </div>
             <div class="home-image">
             <img src="download (24).jpg" alt="pfp">
             </div>
         </section>
-       <section id="projects" class="projects-section">
-    <h1 class="section-heading">My Projects</h1>
-    <p class="section-tagline">A few things I've built while learning to turn data into something useful (and fun)</p>
-
-
+       
+<section id="projects" class="projects-section">
+        <h1 class="section-heading">My Projects</h1>
+        <p class="section-tagline">A few things I've built while learning to turn data into something useful(and fun).</p>
     <div class="project-cards">
         <article class="project-card">
             <h2>GitHub Wrapped</h2>
@@ -48,12 +53,11 @@
                 <li>Chart.js</li>
             </ul>
             <a href="#">Visit project</a>
-        </article>
-
+         </article>
         <article class="project-card">
             <h2>Email Simulator</h2>
-            <p>an OOP-based Python application modeling a working inbox system with Email, 
-                User, and Inbox classes to simulate sending, receiving, and organizing messages</p>
+            <p>An OOP-based Python application modeling a working inbox system with Email, 
+                User, and Inbox classes to simulate sending, receiving, and organizing messages.</p>
             <ul class="tech-stack">
                 <li>Python</li>
                 <li>OOP</li>
@@ -62,9 +66,10 @@
         </article>
     </div>
 </section>
-        <section id="designs" class="design-section">
-    <h1>Designs</h1>
-    <p>Posters, mockups, and other things I couldn't stop tweaking</p>
+       
+<section id="designs" class="design-section">
+    <h1>My Designs</h1>
+    <p>Posters, mockups, and other things I couldn't stop tweaking.</p>
 
     <div class="design-gallery">
         <img src="Poster 1.png" alt="Poster 1">
@@ -125,6 +130,10 @@
         </form>
     </div>
 </section>
+<footer class="site-footer">
+    <p>&copy; 2026 Pratiksha Srivastava</p>
+    <p>Built with HTML &amp; CSS, no frameworks</p>
+</footer>
         
     </body>
 </html>
