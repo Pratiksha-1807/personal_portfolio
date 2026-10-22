@@ -59,7 +59,7 @@ html, body {
   gap: 48px;
   min-height: 100vh;
   padding: 16px 80px;
-  background: #FDF6F0; 
+  background: #7EC8CA; 
   position: relative;
   overflow:hidden ;         
 }
@@ -67,7 +67,7 @@ html, body {
   position: absolute;
   border-radius: 50%;
   z-index: 0;             
-  filter: blur(2px);
+  
   opacity: 0.5;
 }
 .blob-1 {
@@ -254,7 +254,7 @@ html, body {
   border-radius: 20px;
 }
 .project-card a {
-  color:#FF9EB5 ;           
+  color:#f00038 ;           
   font-weight: 600;
   text-decoration: none;
   align-self: flex-start;
@@ -451,4 +451,151 @@ html, body {
   color:    #3D2C2E;
   font-size: 14.4px;
   border-top: 2px solid  #FDF6F0;
+}
+
+:root {
+  --bg: #fdf5f0;
+  --pink: #ff9eb5;
+  --pink-soft: #ffe4ec;
+  --mint-soft: #d4ebe8;
+  --text-dark: #3a2a2e;
+  --text-body: #5a4a4f;
+  --font-body: 'Quicksand', sans-serif;
+  --font-display: 'Fredoka', sans-serif; /* change to your hero heading font */
+}
+
+/* ---------- Section ---------- */
+.about-section {
+  position: relative;
+  overflow: hidden;              /* keeps the circles inside the section */
+  padding: 90px 20px 100px;
+  background: var(--bg);
+  text-align: center;
+  font-family: var(--font-body);
+}
+
+/* soft decorative circles, same idea as the hero */
+.about-section::before,
+.about-section::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+}
+.about-section::before {
+  width: 320px;
+  height: 320px;
+  background: var(--pink-soft);
+  top: -120px;
+  left: -100px;
+  opacity: 0.7;
+}
+.about-section::after {
+  width: 260px;
+  height: 260px;
+  background: var(--mint-soft);
+  bottom: -100px;
+  right: -80px;
+  opacity: 0.6;
+}
+
+/* keep content above the circles */
+.about-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Headings ---------- */
+.about-section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.about-section > h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--pink);
+  margin-bottom: 24px;
+}
+
+/* ---------- Intro paragraph ---------- */
+.about-section > p {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--text-body);
+}
+
+/* ---------- Divider ---------- */
+.about-divider {
+  max-width: 800px;
+  margin: 40px auto;
+  border: none;
+  border-top: 2px dashed var(--pink);
+  opacity: 0.6;
+}
+
+/* ---------- Cards ---------- */
+.about-cards {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  text-align: left;
+}
+
+.about-card {
+  padding: 28px 30px;
+  border-radius: 28px;
+  background: #fff;
+  border: 2px solid var(--pink-soft);
+  box-shadow: 0 8px 20px rgba(255, 158, 181, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(255, 158, 181, 0.25);
+}
+
+.about-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.about-card p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-body);
+}
+
+/* card colour variety, from the same palette */
+.about-card:nth-child(2) {
+  background: #f3fbf9;
+  border-color: var(--mint-soft);
+  box-shadow: 0 8px 20px rgba(150, 210, 200, 0.18);
+}
+
+.about-card:nth-child(3) {
+  grid-column: 1 / -1;           /* full-width bottom card */
+  background: var(--pink-soft);
+  border-color: #ffd0dc;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 700px) {
+  .about-cards {
+    grid-template-columns: 1fr;
+  }
+  .about-card:nth-child(3) {
+    grid-column: auto;
+  }
 }
