@@ -853,4 +853,97 @@ html[data-theme="dark"] body {
 /* ---------- Smooth fade between themes ---------- */
 body, section, footer, .project-card, .skill-group, .about-card {
   transition: background-color 0.3s ease, color 0.3s ease;
+}/* ---------- Menu button (hidden on desktop) ---------- */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  color: #3D2C2E;
+  cursor: pointer;
+}
+
+/* anchor links shouldn't hide under the fixed navbar */
+section {
+  scroll-margin-top: 70px;
+}
+
+/* ---------- Phone / small tablet ---------- */
+@media (max-width: 800px) {
+
+  /* navbar */
+  .top-ribbon {
+    padding: 8px 20px;
+  }
+  .logo img {
+    width: 44px;
+    height: 44px;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-right: 0;
+    background: #FF9EB5;
+    max-height: 0;               /* closed by default */
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+  .nav-links.open {
+    max-height: 400px;
+    padding: 8px 0 16px;
+  }
+  .nav-links a {
+    font-size: 20px;
+    padding: 12px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* hero */
+  .home-section {
+    flex-direction: column-reverse;   /* photo on top, text below */
+    justify-content: center;
+    gap: 28px;
+    min-height: 100svh;
+    padding: 100px 24px 48px;         /* top space clears the navbar */
+  }
+  .home-text {
+    text-align: center;
+  }
+  .home-text h2 {
+    font-size: 18px;
+    margin: 0 auto 24px;
+  }
+  .home-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .home-image img {
+    width: min(260px, 70vw);
+    height: min(260px, 70vw);
+  }
+
+  /* shrink blobs so they don't dominate the screen */
+  .blob-1 { width: 180px; height: 180px; }
+  .blob-2 { width: 140px; height: 140px; }
+  .blob-3 { width: 220px; height: 220px; }
+
+  /* section padding */
+  .projects-section,
+  .design-section,
+  .skills-section,
+  .contact-section {
+    padding: 48px 20px;
+  }
 }
