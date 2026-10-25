@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pratiksha</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+  const t = localStorage.getItem('theme') ||
+    (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', t);
+</script>
     </head>
     <body>
        
@@ -17,6 +22,7 @@
                 <a href="#projects">Projects</a>
                 <a href="#skills">Skills</a>
                 <a href="#contact">Contact</a>
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
             </nav>
         </header>
        
@@ -110,7 +116,20 @@
                 <li>Python</li>
                 <li>OOP</li>
             </ul>
-            <a href="#">Visit Project</a>
+            <a href="https://github.com/Pratiksha-1807/repo-github">Visit Project</a>
+        </article>
+        <article class="project-card">
+            <h2>House Management system</h2>
+            <p>Machine learning backend for a house-renting platform, built as part of a team. 
+                I built three models and deployed them as APIs: a rent estimator, a detector for suspicious listings, and a home recommender.</p>
+            <ul class="tech-stack">
+                <li>Python</li>
+                <li>pandas</li>
+                <li>NumPy</li>
+                <li>scikit-learn</li>
+                <li>FastAPI</li>
+            </ul>
+            <a href="https://github.com/vasubhargav/aws_grp_task/tree/ml-model">Visit Project</a>
         </article>
     </div>
 </section>
@@ -182,6 +201,17 @@
     <p> 2026 Pratiksha Srivastava</p>
     <p>Built with HTML &amp; CSS, no frameworks</p>
 </footer>
+<div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+    <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous design">&#8249;</button>
+
+    <img class="lb-img" id="lbImg" src="" alt="">
+
+    <button class="lb-btn lb-next" id="lbNext" aria-label="Next design">&#8250;</button>
+    <p class="lb-counter" id="lbCounter"></p>
+</div>
+
+<script src="script.js"></script>
         
     </body>
 </html>
