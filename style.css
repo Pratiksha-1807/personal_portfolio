@@ -599,3 +599,258 @@ html, body {
     grid-column: auto;
   }
 }
+/* ---------- Design gallery: clickable ---------- */
+.design-gallery img {
+  cursor: zoom-in;
+}
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;                         /* above the fixed navbar (1000) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(61, 44, 46, 0.88);    /* your #3D2C2E, see-through */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.lightbox.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lb-img {
+  max-width: 85vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 16px;
+  border: 4px solid #FF9EB5;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  transform: scale(0.92);
+  transition: transform 0.3s ease;
+}
+.lightbox.open .lb-img {
+  transform: scale(1);
+}
+
+.lb-btn,
+.lb-close {
+  position: absolute;
+  border: none;
+  cursor: pointer;
+  background: #FF9EB5;
+  color: #3D2C2E;
+  border-radius: 50%;
+  font-family: inherit;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.lb-btn:hover,
+.lb-close:hover {
+  background: #7EC8CA;                   /* same hover colour as your buttons */
+  transform: scale(1.1);
+}
+
+.lb-btn {
+  top: 50%;
+  width: 52px;
+  height: 52px;
+  margin-top: -26px;
+  font-size: 2rem;
+  line-height: 1;
+}
+.lb-prev { left: 24px; }
+.lb-next { right: 24px; }
+
+.lb-close {
+  top: 20px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.lb-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #FDF6F0;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+  .lb-btn { width: 42px; height: 42px; }
+  .lb-prev { left: 8px; }
+  .lb-next { right: 8px; }
+}
+:root {
+  --card-bg: #FDF6F0;
+  --mint-section: #A8DADC;   /* projects + skills background */
+  --hero-bg: #7EC8CA;
+  --chip: #FFD1DC;           /* tags, shadows, soft pink bits */
+  --input-bg: #ffffff;
+  --on-pink: #3D2C2E;        /* text that sits ON pink buttons: never changes */
+}
+
+[data-theme="dark"] {
+  --bg: #1f1a22;
+  --card-bg: #2a232e;
+  --mint-section: #1f3336;
+  --hero-bg: #1a2c2f;
+  --chip: #4a2d3a;
+  --input-bg: #2a232e;
+  --text-dark: #f6ebef;
+  --text-body: #d9cbd1;
+  --pink-soft: #3a2630;
+  --mint-soft: #2d4a4d;
+}
+[data-theme="dark"] .about-card { background: var(--card-bg); }
+[data-theme="dark"] .about-card:nth-child(2) { background: #243336; }
+[data-theme="dark"] .about-card:nth-child(3) { background: #33232c; }
+.theme-toggle {
+  background: #FDF6F0;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.theme-toggle:hover {
+  transform: scale(1.1) rotate(15deg);
+  background: #fff;
+}
+body, section, footer, .project-card, .skill-group {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* =========================================================
+   DARK THEME: overrides for the whole site
+   (must stay at the bottom of the file)
+   ========================================================= */
+
+/* ---------- Base ---------- */
+[data-theme="dark"] html,
+[data-theme="dark"] body,
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+  background: #1f1a22;
+}
+
+/* ---------- Hero ---------- */
+[data-theme="dark"] .home-section {
+  background: #1a2c2f;
+}
+[data-theme="dark"] .home-text h1,
+[data-theme="dark"] .home-text h2 {
+  color: #f6ebef;
+}
+
+/* ---------- Projects ---------- */
+[data-theme="dark"] .projects-section {
+  background: #1f3336;
+}
+[data-theme="dark"] .section-heading,
+[data-theme="dark"] .section-tagline {
+  color: #f6ebef;
+}
+[data-theme="dark"] .project-card {
+  background: #2a232e;
+  border-color: #FF9EB5;
+  box-shadow: 6px 6px 0 #4a2d3a;
+}
+[data-theme="dark"] .project-card:hover {
+  box-shadow: 9px 9px 0 #4a2d3a;
+}
+[data-theme="dark"] .project-card h2 {
+  color: #f6ebef;
+}
+[data-theme="dark"] .project-card p {
+  color: #d9cbd1;
+}
+[data-theme="dark"] .tech-stack li {
+  background: #4a2d3a;
+  color: #f6ebef;
+}
+[data-theme="dark"] .project-card a {
+  color: #3D2C2E;          /* dark brown text on the pink button */
+}
+
+
+/* ---------- Designs ---------- */
+[data-theme="dark"] .design-section {
+  background: #1f1a22;
+}
+[data-theme="dark"] .design-section h1,
+[data-theme="dark"] .design-section p {
+  color: #f6ebef;
+}
+[data-theme="dark"] .design-section img {
+  border-color: #FF9EB5;
+}
+
+/* ---------- Skills ---------- */
+[data-theme="dark"] .skills-section {
+  background: #1f3336;
+}
+[data-theme="dark"] .skills-section h1,
+[data-theme="dark"] .skills-section > p {
+  color: #f6ebef;
+}
+[data-theme="dark"] .skill-group {
+  background: #2a232e;
+  box-shadow: 6px 6px 0 #4a2d3a;
+}
+[data-theme="dark"] .skill-group:hover {
+  box-shadow: 9px 9px 0 #4a2d3a;
+}
+[data-theme="dark"] .skill-group h2,
+[data-theme="dark"] .skill-group li {
+  color: #f6ebef;
+}
+[data-theme="dark"] .skill-group li {
+  border-bottom-color: #4a2d3a;
+}
+
+/* ---------- Contact ---------- */
+[data-theme="dark"] .contact-section {
+  background: #1f1a22;
+}
+[data-theme="dark"] .contact-section h1,
+[data-theme="dark"] .contact-section > p {
+  color: #f6ebef;
+}
+[data-theme="dark"] .contact-link {
+  background: #4a2d3a;
+  color: #f6ebef;
+}
+[data-theme="dark"] .contact-link:hover {
+  background: #FF9EB5;
+  color: #3D2C2E;
+}
+[data-theme="dark"] .contact-form input,
+[data-theme="dark"] .contact-form textarea {
+  background: #2a232e;
+  color: #f6ebef;
+  border-color: #3d5d60;
+}
+[data-theme="dark"] .contact-form input::placeholder,
+[data-theme="dark"] .contact-form textarea::placeholder {
+  color: #a898a0;
+}
+
+/* ---------- Footer ---------- */
+[data-theme="dark"] .site-footer {
+  background: #1f1a22;
+  color: #d9cbd1;
+  border-top-color: #4a2d3a;
+}
+
+/* ---------- Smooth fade between themes ---------- */
+body, section, footer, .project-card, .skill-group, .about-card {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
